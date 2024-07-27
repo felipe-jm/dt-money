@@ -1,0 +1,20 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "price": 2000,
+      "type": "income",
+      "description": "Website Freelance",
+      "category": "Service",
+      "createdAt": "2024-07-27T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "price": 108,
+      "type": "outcome",
+      "description": "Whey Protein",
+      "category": "Food",
+      "createdAt": "2024-07-25T00:00:00.000Z"
+    }
+  ]
+}
