@@ -15,6 +15,22 @@
       "description": "Whey Protein",
       "category": "Food",
       "createdAt": "2024-07-25T00:00:00.000Z"
+    },
+    {
+      "description": "User subscription",
+      "price": 25,
+      "category": "Service",
+      "type": "income",
+      "createdAt": "2024-07-27T15:42:41.898Z",
+      "id": 3
+    },
+    {
+      "description": "Protein Bar",
+      "price": 20,
+      "category": "Food",
+      "type": "outcome",
+      "createdAt": "2024-07-27T15:49:02.770Z",
+      "id": 4
     }
   ]
 }

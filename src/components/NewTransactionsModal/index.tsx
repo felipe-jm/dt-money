@@ -1,11 +1,15 @@
-import * as Dialog from "@radix-ui/react-dialog";
+import { useContext } from "react";
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 
-import * as zod from "zod";
-
-import * as S from "./styles";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import * as Dialog from "@radix-ui/react-dialog";
+import * as zod from "zod";
+
+import { TransactionContext } from "../../contexts/TransactionsContext";
+
+import * as S from "./styles";
 
 const newTransactionFormSchema = zod.object({
   description: zod.string(),
@@ -17,17 +21,20 @@ const newTransactionFormSchema = zod.object({
 type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
-  const { control, register, handleSubmit } = useForm<NewTransactionFormInputs>(
-    {
+  const { createTransactions } = useContext(TransactionContext);
+
+  const { control, register, handleSubmit, reset } =
+    useForm<NewTransactionFormInputs>({
       resolver: zodResolver(newTransactionFormSchema),
       defaultValues: {
         type: "income",
       },
-    }
-  );
+    });
 
-  function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-    console.log(data);
+  async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
+    createTransactions(data);
+
+    reset();
   }
 
   return (
